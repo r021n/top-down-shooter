@@ -2,7 +2,9 @@ extends CharacterBody2D
 
 @export var speed: float = 300.0
 @export var fire_rate: float = 0.2
+@export var max_hp: int = 100
 
+var hp: int = max_hp
 var can_shoot: bool = true
 var bullet_scene: PackedScene = preload("res://scenes/bullet.tscn")
 
@@ -41,3 +43,14 @@ func shoot():
 	
 	var timer = get_tree().create_timer(fire_rate)
 	timer.timeout.connect(func(): can_shoot = true)
+
+func take_damage(damage: int):
+	hp -= damage
+	print("Player HP: ", hp)
+	
+	if hp <= 0:
+		die()	
+
+func die():
+	print("Player Mati!")
+	queue_free()
