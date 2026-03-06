@@ -4,10 +4,10 @@
 [ext_resource type="Script" uid="uid://bferlyf01cmdg" path="res://scripts/enemy.gd" id="1_md0e3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_md0e3"]
-radius = 23.021729
+radius = 27.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ra3w"]
-radius = 23.021729
+radius = 34.0147
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1442357600 groups=["enemies"]]
 script = ExtResource("1_md0e3")
