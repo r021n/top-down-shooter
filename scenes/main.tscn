@@ -6,6 +6,18 @@
 [node name="Main" type="Node2D" unique_id=898897465]
 script = ExtResource("1_sugp2")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1557293646]
+layer = -1
+
+[node name="Background" type="ColorRect" parent="CanvasLayer" unique_id=810850302]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+color = Color(0.16470589, 0.16470589, 0.16470589, 1)
+
 [node name="Player" parent="." unique_id=1830962830 instance=ExtResource("1_o5qli")]
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=167641084]

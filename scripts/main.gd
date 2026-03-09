@@ -5,9 +5,15 @@ var score: int = 0
 
 @onready var spawn_timer: Timer = $SpawnTimer
 @onready var score_label: Label = $UI/ScoreLabel
+@onready var player: CharacterBody2D = $Player
 
 func _ready():
 	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
+	player.global_position = get_viewport_rect().size / 2
+
+func _process(_delta):
+	if player == null:
+		game_over()
 
 func _on_spawn_timer_timeout():
 	spawn_enemy()
@@ -41,3 +47,12 @@ func get_random_spawn_position() -> Vector2:
 func add_score(points: int):
 	score += points
 	score_label.text = "Score: " + str(score)
+	
+func game_over():
+	spawn_timer.stop()
+	Global.final_score = score
+	get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().paused = !get_tree().paused
