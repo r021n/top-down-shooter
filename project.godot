@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="TopDownShooter"
-run/main_scene="uid://dporp0la3oewh"
+run/main_scene="uid://cq2w6ktk4leor"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
