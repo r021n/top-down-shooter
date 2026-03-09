@@ -4,12 +4,16 @@ var enemy_scene: PackedScene = preload("res://scenes/enemy.tscn")
 var score: int = 0
 
 @onready var spawn_timer: Timer = $SpawnTimer
+@onready var score_label: Label = $UI/ScoreLabel
 
 func _ready():
 	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
 
 func _on_spawn_timer_timeout():
 	spawn_enemy()
+	
+	if spawn_timer.wait_time > 0.5:
+		spawn_timer.wait_time -= 0.05
 
 func spawn_enemy():
 	var enemy = enemy_scene.instantiate()
@@ -36,4 +40,4 @@ func get_random_spawn_position() -> Vector2:
 
 func add_score(points: int):
 	score += points
-	print("Score: ", score)
+	score_label.text = "Score: " + str(score)
